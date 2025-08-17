@@ -13,8 +13,8 @@ from nltk.stem import WordNetLemmatizer
 from PyPDF2 import PdfReader
 import docx
 
-from Services.ClassifierInterface import ClassifierInterface
-from Services.Helpers.ExtractTextFromFiles import ExtractTextFromFiles
+from .ClassifierInterface import ClassifierInterface
+from ..Helpers.ExtractTextFromFiles import ExtractTextFromFiles
 
 
 # Ensure the same NLTK models are available at runtime
@@ -30,7 +30,7 @@ class ModelClassifier(ClassifierInterface):
         """
         # If none given, assume it's in the same folder
         if model_path is None:
-            model_path = os.path.join(os.path.dirname(__file__), "Helpers",
+            model_path = os.path.join(os.path.dirname(__file__), "..", "Helpers",
                                       'sensitivity_detector.joblib')
 
         # Load the trained sklearn Pipeline (TF-IDF + classifier)

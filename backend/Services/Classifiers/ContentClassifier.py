@@ -4,8 +4,8 @@ import os
 import re
 import json
 
-from Services.ClassifierInterface import ClassifierInterface
-from Services.Helpers.ExtractTextFromFiles import ExtractTextFromFiles
+from .ClassifierInterface import ClassifierInterface
+from ..Helpers.ExtractTextFromFiles import ExtractTextFromFiles
 
 class ContentClassifier(ClassifierInterface):
     def __init__(self,

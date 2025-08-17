@@ -7,8 +7,8 @@ from presidio_analyzer import (
     Pattern,
     PatternRecognizer,
 )
-from Services.ClassifierInterface import ClassifierInterface
-from Services.Helpers.ExtractTextFromFiles import ExtractTextFromFiles
+from .ClassifierInterface import ClassifierInterface
+from ..Helpers.ExtractTextFromFiles import ExtractTextFromFiles
 from .Recognizers.PrivacyKeywordRecognizer import PrivacyKeywordRecognizer
 from presidio_analyzer import EntityRecognizer
 from nltk.corpus import wordnet
@@ -130,9 +130,14 @@ class PresidioClassifier(ClassifierInterface):
 
     def classify(self, filepath: str) -> str:
         # extension check
-        ext = os.path.splitext(filepath)[1].lower()
-        if ext in self.sensitive_exts:
-            return "SENSITIVE"
+        
+        
+        #TODO revise the extension logic
+
+        
+        #ext = os.path.splitext(filepath)[1].lower()
+        #if ext in self.sensitive_exts:
+        #    return "SENSITIVE"
 
         # extract
         text = ExtractTextFromFiles.extract_text(filepath)

@@ -2,15 +2,19 @@
 # Runs all implemented classifiers on the test dataset and prints accuracy scores + timing
 
 import os
+import sys
 import csv
 import time
 from collections import Counter
 
-from Services.FilenameClassifier import FilenameClassifier
-from Services.MixedClassifier import MixedClassifier
-from Services.ContentClassifier import ContentClassifier   
-from Services.PresidioClassifier import PresidioClassifier
-from Services.ModelClassifier import ModelClassifier
+# Add the parent directory to the Python path so we can import from backend
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from backend.Services.Classifiers.FilenameClassifier import FilenameClassifier
+from backend.Services.Classifiers.MixedClassifier import MixedClassifier
+from backend.Services.Classifiers.ContentClassifier import ContentClassifier   
+from backend.Services.Classifiers.PresidioClassifier import PresidioClassifier
+from backend.Services.Classifiers.ModelClassifier import ModelClassifier
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -34,8 +38,8 @@ with open(ground_truth_path, newline="", encoding="utf-8") as f:
 # === Initialize classifiers ===
 classifiers = {
     "FilenameClassifier": FilenameClassifier(),
-    "MixedClassifier": MixedClassifier(),
     "ContentClassifier": ContentClassifier(),
+    "MixedClassifier": MixedClassifier(),
     "PresidioClassifier": PresidioClassifier(),
     "ModelClassifier": ModelClassifier()
 }
