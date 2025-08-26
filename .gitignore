@@ -1,0 +1,7 @@
+# Ignore .env files to prevent sensitive information from being pushed to Git
+.env
+
+# Ingore .venv
+.venv
+
+TestData/

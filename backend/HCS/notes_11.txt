@@ -1,0 +1,3 @@
+Recipe: Chili Stew
+Ingredients: Carrot, Garlic, Beef
+Steps: Mix all ingredients and simmer.
